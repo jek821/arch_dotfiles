@@ -1,0 +1,16 @@
+# Live Firefox profile data (passwords, cookies, history) — not config,
+# never belongs in git. Use Firefox Sync or a manual profile copy instead.
+mozilla/
+
+# nvim config lives in its own repo (git@github.com:jek821/Cvim).
+# Clone it separately; doctor.sh checks that it's present.
+nvim/
+
+# Machine-local PulseAudio auth cookie, not config.
+pulse/cookie
+
+# Full dconf binary dump — too broad / opaque to restore reliably.
+dconf/user
+
+# Editor/tool backup cruft.
+*.bak

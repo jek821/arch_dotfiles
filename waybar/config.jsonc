@@ -5,18 +5,38 @@
   "spacing": 6,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio","network","bluetooth","cpu","temperature","battery","clock"],
-
+  "modules-right": ["pulseaudio","network","bluetooth","cpu", "memory", "temperature","battery","clock"],
   "hyprland/window": { "max-length": 50 },
-  "pulseaudio": { "format": "vol {volume}%", "format-muted": "muted", "on-click": "pavucontrol" },
-  "network": { "format-wifi": "{essid}", "format-disconnected": "offline", "on-click": "foot -e nmtui" },
-  "bluetooth": { "format": "bt", "format-connected": "bt {num_connections}", "on-click": "foot -e bluetoothctl" },
-  "cpu": { "format": "cpu {usage}%", "interval": 3 },
-  "temperature": { "critical-threshold": 85, "format": "{temperatureC}C" },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀 wired",
+    "format-disconnected": "󰤭 offline",
+    "on-click": "foot -e nmtui"
+  },
+  "bluetooth": {
+    "format": "󰂯",
+    "format-connected": "󰂱 {num_connections}",
+    "format-disabled": "󰂲",
+    "on-click": "foot -e bluetoothctl"
+  },
+  "cpu": { "format": "CPU: {usage}%", "interval": 3 },
+  "memory": { "format": "RAM: {used:0.1f}G/{total:0.1f}G", "interval": 8 },
+  "temperature": {
+    "critical-threshold": 85,
+    "format": "TEMP: {temperatureC}°C",
+  },
   "battery": {
     "states": { "warning": 25, "critical": 10 },
-    "format": "bat {capacity}%",
-    "format-charging": "chg {capacity}%"
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
   },
-  "clock": { "format": "{:%a %d %b  %H:%M}" }
+  "clock": { "format": "󰥔 {:%a %d %b  %H:%M}" }
 }
