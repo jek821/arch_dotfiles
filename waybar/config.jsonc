@@ -1,0 +1,22 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "spacing": 6,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["pulseaudio","network","bluetooth","cpu","temperature","battery","clock"],
+
+  "hyprland/window": { "max-length": 50 },
+  "pulseaudio": { "format": "vol {volume}%", "format-muted": "muted", "on-click": "pavucontrol" },
+  "network": { "format-wifi": "{essid}", "format-disconnected": "offline", "on-click": "foot -e nmtui" },
+  "bluetooth": { "format": "bt", "format-connected": "bt {num_connections}", "on-click": "foot -e bluetoothctl" },
+  "cpu": { "format": "cpu {usage}%", "interval": 3 },
+  "temperature": { "critical-threshold": 85, "format": "{temperatureC}C" },
+  "battery": {
+    "states": { "warning": 25, "critical": 10 },
+    "format": "bat {capacity}%",
+    "format-charging": "chg {capacity}%"
+  },
+  "clock": { "format": "{:%a %d %b  %H:%M}" }
+}
